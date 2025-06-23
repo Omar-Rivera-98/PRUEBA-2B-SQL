@@ -5,19 +5,20 @@ GO
 
 CREATE TABLE Especialidad(
 idEspecialidad int identity (1,1) PRIMARY KEY,
-nombre VARCHAR (25) not null);
+nombreEspecialidad VARCHAR (25) not null);
 
 GO
 
 CREATE TABLE Grado(
 idGrado int identity (1,1) primary key,
-nombre VARCHAR (25) not null);
+nombreGrado VARCHAR (25) not null);
 
 GO
 
+
 CREATE TABLE Estudiante(
-idEstudiante int identity (100,1),
-nombre VARCHAR (25) not null,
+idEstudiante int identity (100,1) primary key,
+nombreEstudiante VARCHAR (25) not null,
 apellido VARCHAR (25),
 carnet int unique,
 edad int not null,
@@ -50,4 +51,7 @@ insert into Estudiante values
 ('Luis Edgardo','Soriano Rivas','20220011',16,1,1),
 ('Rosemberg Astul','Ramos','20240100',16,1,1),
 ('Chelsea Mariana','Mejia Martinez','20241012',16,1,1)
+
+Exec sp_rename 'Estudiante.nombre', 'nombreEstuiante','COLUMN';
+Exec sp_rename 'Estudiante.Grado', 'nombreGrado','COLUMN';
 
